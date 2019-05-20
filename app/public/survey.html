@@ -35,7 +35,7 @@
     <h4>Question #2</h4>
     <div class="form-group">
         <label for="question1">You consider yourself a home body</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question2">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -47,7 +47,7 @@
     <h4>Question #3</h4>
     <div class="form-group">
         <label for="question1">You prefer dogs over cats</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question3">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -59,7 +59,7 @@
     <h4>Question #4</h4>
     <div class="form-group">
         <label for="question1">Your likelyhood of voting republican</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question4">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -71,7 +71,7 @@
     <h4>Question #5</h4>
     <div class="form-group">
         <label for="question1">You enjoy watching anime</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question5">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -83,7 +83,7 @@
     <h4>Question #6</h4>
     <div class="form-group">
         <label for="question1">You are a morning person</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question6">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -95,7 +95,7 @@
     <h4>Question #7</h4>
     <div class="form-group">
         <label for="question1">You enjoy playing boardgames</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question7">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -107,7 +107,7 @@
     <h4>Question #8</h4>
     <div class="form-group">
         <label for="question1">You always make plans on the weekends</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question8">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -119,7 +119,7 @@
     <h4>Question #9</h4>
     <div class="form-group">
         <label for="question1">You consider yourself a nerd</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question9">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -131,7 +131,7 @@
     <h4>Question #10</h4>
     <div class="form-group">
         <label for="question1">You enjoy outdoor activities like hiking</label>
-        <select class="form-control" id="question1">
+        <select class="form-control" id="question10">
           <option disabled selected value="">Please Select Value</option>
           <option value="1">1 (Strongly Agree)</option>
           <option value="2">2 (Somewhat Agree)</option>
@@ -158,3 +158,30 @@
     </div>
   </footer>
 </html>
+<script>
+$("#submitAns").on("click", function(event) {
+  event.preventDefault();
+
+// Grab data from servey questions
+  var newFriend = {
+    name: $("#name").val(),
+    photo: $("#photo").val(),
+    scores: [
+      $("question1").val(),
+      $("question2").val(),
+      $("question3").val(),
+      $("question4").val(),
+      $("question5").val(),
+      $("question6").val(),
+      $("question7").val(),
+      $("question8").val(),
+      $("question9").val(),
+      $("question10").val(),
+    ]
+  };
+  $.post("/api/friends", newFriend, function(data) {
+    
+  })
+})
+
+</script>
