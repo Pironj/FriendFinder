@@ -6,6 +6,22 @@
 
 var friendsArr = [
   {
+    "name":"test",
+    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "scores":[
+        3,
+        3,
+        1,
+        2,
+        3,
+        5,
+        5,
+        4,
+        3,
+        2
+      ]
+  },
+  {
     "name":"Ahmed",
     "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
     "scores":[
@@ -23,4 +39,5 @@ var friendsArr = [
   }
 ]
 
+// export our data array object.
 module.exports = friendsArr;
