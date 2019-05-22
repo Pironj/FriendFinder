@@ -6,7 +6,7 @@
 
 var friendsArr = [
   {
-    "name":"Salsa Stark",
+    "name":"Sansa Stark",
     "photo":"https://upload.wikimedia.org/wikipedia/en/thumb/7/74/SophieTurnerasSansaStark.jpg/220px-SophieTurnerasSansaStark.jpg",
     "scores":[
         5,
