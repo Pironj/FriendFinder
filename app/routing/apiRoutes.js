@@ -12,23 +12,22 @@ module.exports = function(app) {
   app.post("/api/friends", function(req, res) {
     
     console.log(friendsData);
-    var newFriend = req.body;
-    var maxScoreDiff = 40;
+    var newBestFriend = req.body;
     var bestFriend = 0;
     bestFriendArr = [];
     
-    for (i = 0; i < newFriend.scores.length; i++) {
-      newFriend.scores[i] = parseInt(newFriend.scores[i]);
+    for (i = 0; i < newBestFriend.scores.length; i++) {
+      newBestFriend.scores[i] = parseInt(newBestFriend.scores[i]);
     }
     // logs the current survey entry scores.
-    console.log(newFriend);
+    console.log(newBestFriend);
     for (i = 0; i < friendsData.length; i++) {
       // logs each friend scores in our api.
       console.log(friendsData[i].scores);
       var totalDifference = 0;
       for (z = 0; z < friendsData[i].scores.length; z++) {
         console.log(friendsData[i].scores[z])
-        var absoluteDifference = Math.abs(newFriend.scores[z] - friendsData[i].scores[z]);
+        var absoluteDifference = Math.abs(newBestFriend.scores[z] - friendsData[i].scores[z]);
         // increments the total abs
         totalDifference += absoluteDifference;
       }
@@ -40,21 +39,16 @@ module.exports = function(app) {
       // find the minimum in our array of absolute differences for each friend
       var match = Math.min.apply(null, bestFriendArr);
       console.log("match: " + match);
-      // var friendMatch = friendsData[i]
-
-      if (totalDifference < maxScoreDiff) {
-        totalDifference = maxScoreDiff;
-        bestFriend = i;
-      }
+      // set bestFriend = index of the smallest difference in our bestFriendArr
+      bestFriend = bestFriendArr.indexOf(Math.min.apply(Math, bestFriendArr));
       console.log("\n");
       console.log("best friend match:");
       console.log(friendsData[bestFriend]);
       console.log("\n");
     }
     // adds our new survey data to our friends.js data
-    friendsData.push(newFriend);
+    friendsData.push(newBestFriend);
     res.json(friendsData[bestFriend]);
   });
   
 }
-
